@@ -12,6 +12,11 @@
     <Implicit_KindOfTask>{a685cdce-21d5-4762-a214-02856cf45583}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{008f7543-ed37-43c5-b660-6795f7a05aea}</Implicit_Jitter_Distribution>
     <LibraryReferences>{e13cf878-72e7-4a36-ad83-c7bca4578527}</LibraryReferences>
+    <CombineIds>false</CombineIds>
+    <Company>SLAC</Company>
+    <Released>true</Released>
+    <Title>mr3k3-mr4k3-mr2l1-mr3l1-sat</Title>
+    <ProjectVersion>0.0.0</ProjectVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PlcTask.TcTTO">

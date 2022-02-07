@@ -30,10 +30,10 @@ VAR
                               .bLimitBackwardEnable:=TIIB[M4K3 rY (EL7041-0052)]^STM Status^Status^Digital input 2'}
      M6 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE);
     fbMotionStageM6 : FB_MotionStage;
-    {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^Term 16 (EL1004)^Channel 1^Input'}
+    {attribute 'TcLinkTo' := 'TIIB[Term 16 (EL1004)]^Channel 1^Input'}
     bSTOEnable1 AT %I* : BOOL;
 	
-	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^Term 16 (EL1004)^Channel 2^Input'}
+	{attribute 'TcLinkTo' := 'TIIB[Term 16 (EL1004)]^Channel 2^Input'}
     bSTOEnable2 AT %I* : BOOL;
 
 END_VAR

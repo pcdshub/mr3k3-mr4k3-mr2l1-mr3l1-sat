@@ -1938,6 +1938,7 @@ External Setpoint Generation:
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M3K3 rX M4K3 X (EL5042)">
 				<Link VarA="PlcTask Inputs^MAIN.M3.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M4.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M4K3 X (EL7041-0052)">
 				<Link VarA="PlcTask Inputs^MAIN.M4.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1"/>
@@ -1946,6 +1947,10 @@ External Setpoint Generation:
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M4K3 Y (EL7041-0052)">
 				<Link VarA="PlcTask Inputs^MAIN.M5.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^MAIN.M5.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M4K3 YrY (EL5042)">
+				<Link VarA="PlcTask Inputs^MAIN.M5.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M6.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M4K3 rY (EL7041-0052)">
 				<Link VarA="PlcTask Inputs^MAIN.M6.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>

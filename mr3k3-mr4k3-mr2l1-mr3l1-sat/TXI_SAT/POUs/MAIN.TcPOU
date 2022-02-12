@@ -30,7 +30,8 @@ VAR
     fbMotionStageM3 : FB_MotionStage;
 	
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[M4K3 X (EL7041-0052)]^STM Status^Status^Digital input 2;
-                              .bLimitBackwardEnable:=TIIB[M4K3 X (EL7041-0052)]^STM Status^Status^Digital input 1'}
+                              .bLimitBackwardEnable:=TIIB[M4K3 X (EL7041-0052)]^STM Status^Status^Digital input 1;
+                              .nRawEncoderULINT:=TIIB[M3K3 rX M4K3 X (EL5042)]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
 			pv: MR4K3:KB:MMS:X
 	'}
@@ -38,14 +39,16 @@ VAR
     fbMotionStageM4 : FB_MotionStage;
 	 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[M4K3 Y (EL7041-0052)]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[M4K3 Y (EL7041-0052)]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[M4K3 Y (EL7041-0052)]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[M4K3 YrY (EL5042)]^FB Inputs Channel 1^Position'}
 	{attribute 'pytmc' := '
 			pv: MR4K3:KB:MMS:Y
 	'}
 	 M5 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE);
     fbMotionStageM5 : FB_MotionStage;
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[M4K3 rY (EL7041-0052)]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[M4K3 rY (EL7041-0052)]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[M4K3 rY (EL7041-0052)]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[M4K3 YrY (EL5042)]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
 			pv: MR4K3:KB:MMS:rY
 	'}

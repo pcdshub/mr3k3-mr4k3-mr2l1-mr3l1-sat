@@ -16,5 +16,11 @@
 		<SvbTask Priority="8" CycleTime="100000" AmsPort="511">
 			<Name>NC-Task 1 SVB</Name>
 		</SvbTask>
+		<Axis File="M3K3 X.xti" Id="1"/>
+		<Axis File="M3K3 Y.xti" Id="2"/>
+		<Axis File="M3K3 rX.xti" Id="3"/>
+		<Axis File="M4K3 X.xti" Id="4"/>
+		<Axis File="M4K3 Y.xti" Id="5"/>
+		<Axis File="M4K3 rY.xti" Id="6"/>
 	</NC>
 </TcSmItem>

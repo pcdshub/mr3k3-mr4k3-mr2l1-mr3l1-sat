@@ -10,5 +10,8 @@
 		<Box File="TXI K (EK1100).xti" Id="3">
 			<EtherCAT PortABoxInfo="#x03000002"/>
 		</Box>
+		<Box File="TXI L (EK1100).xti" Id="44">
+			<EtherCAT PortABoxInfo="#x02000003"/>
+		</Box>
 	</Box>
 </TcSmItem>

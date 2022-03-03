@@ -91,7 +91,7 @@ VAR
 	 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[M3L1 Y (EL7041-0052)]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[M3L1 Y (EL7041-0052)]^STM Status^Status^Digital input 2;
-                              .nRawEncoderULINT:=TIIB[M3L1 YrY (EL5042)]^FB Inputs Channel 1^Position'}
+                              .nRawEncoderULINT:=TIIB[M3L1 YrY(EL5042)]^FB Inputs Channel 1^Position'}
 	{attribute 'pytmc' := '
 			pv: MR3L1:KBO:MMS:Y
 	'}
@@ -99,7 +99,7 @@ VAR
     fbMotionStageM11 : FB_MotionStage;
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[M3L1 rY (EL7041-0052)]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[M3L1 rY (EL7041-0052)]^STM Status^Status^Digital input 2;
-                              .nRawEncoderULINT:=TIIB[M3L1 YrY (EL5042)]^FB Inputs Channel 2^Position'}
+                              .nRawEncoderULINT:=TIIB[M3L1 YrY(EL5042)]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
 			pv: MR3L1:KBO:MMS:rY
 	'}

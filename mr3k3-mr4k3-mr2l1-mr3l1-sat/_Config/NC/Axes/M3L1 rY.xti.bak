@@ -1328,7 +1328,6 @@ External Setpoint Generation:
 			<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="100" Deceleration="100" DelayTime="0.008"/>
 			<Velo Maximum="35"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
-			<ParameterChanged>39</ParameterChanged>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
 			<EncPara ScaleFactorNumerator="0.0025316" MaxCount="#xffffffff">
@@ -1466,8 +1465,9 @@ Drive Status 4 (manually linked):
 		<Controller Name="Ctrl" CtrType="2">
 			<CtrPara PriorControlFactor="1">
 				<PosDiffControl Range="10"/>
-				<PID DeadBandPosition="0.1"/>
+				<PID PosExtKp="1" DeadBandPosition="0.1"/>
 				<Observer BandWidth="20"/>
+				<ParameterChanged>262</ParameterChanged>
 			</CtrPara>
 		</Controller>
 		<Vars VarGrpType="1" InsertType="1">
@@ -1532,4 +1532,38 @@ External Setpoint Generation:
 			</Var>
 		</Vars>
 	</Axis>
+	<Mappings>
+		<OwnerA>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M3L1 YrY(EL5042)">
+				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
+				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState"/>
+				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Inputs Channel 2^Position"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Diag" Size="1" OffsA="12"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Error" Size="1" OffsA="1"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Input cycle counter" Size="2" OffsA="14"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Ready" Size="1" OffsA="2"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^TxPDO State" Size="1" OffsA="13"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Warning"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M3L1 rY (EL7041-0052)">
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Ready" Size="1" OffsA="1"/>
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Ready to enable"/>
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Torque reduced" Size="1" OffsA="6"/>
+				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Warning" Size="1" OffsA="2"/>
+				<Link VarA="Drive^Inputs^In^nState2" VarB="STM Status^Status^Digital input 1" Size="1" OffsA="3"/>
+				<Link VarA="Drive^Inputs^In^nState2" VarB="STM Status^Status^Digital input 2" Size="1" OffsA="4"/>
+				<Link VarA="Drive^Inputs^In^nState2" VarB="STM Status^Status^Sync error" Size="1" OffsA="5"/>
+				<Link VarA="Drive^Inputs^In^nState2" VarB="STM Status^Status^TxPDO Toggle" Size="1" OffsA="7"/>
+				<Link VarA="Drive^Inputs^In^nState4" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
+				<Link VarA="Drive^Inputs^In^nState4" VarB="WcState^WcState"/>
+				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="STM Control^Control^Enable"/>
+				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="STM Control^Control^Reduce torque" Size="1" OffsA="2"/>
+				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="STM Control^Control^Reset" Size="1" OffsA="1"/>
+				<Link VarA="Drive^Outputs^Out^nDataOut2[0]" VarB="STM Velocity^Velocity"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
 </TcSmItem>

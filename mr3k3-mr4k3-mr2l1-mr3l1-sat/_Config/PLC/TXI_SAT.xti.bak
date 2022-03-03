@@ -2932,6 +2932,38 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^MAIN.bSTOEnable1" VarB="Channel 1^Input"/>
 				<Link VarA="PlcTask Inputs^MAIN.bSTOEnable2" VarB="Channel 2^Input" AutoLink="true"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M2L1 X (EL7041-0052)">
+				<Link VarA="PlcTask Inputs^MAIN.M7.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M7.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M2L1 XY (EL5042)">
+				<Link VarA="PlcTask Inputs^MAIN.M7.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M8.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M2L1 Y (EL7041-0052)">
+				<Link VarA="PlcTask Inputs^MAIN.M8.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M8.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M2L1 rX (EL7041-0052)">
+				<Link VarA="PlcTask Inputs^MAIN.M9.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M9.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M2L1 rX M3L1 X (EL5042)">
+				<Link VarA="PlcTask Inputs^MAIN.M10.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M9.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M3L1 X (EL7041-0052)">
+				<Link VarA="PlcTask Inputs^MAIN.M10.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M10.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M3L1 Y (EL7041-0052)">
+				<Link VarA="PlcTask Inputs^MAIN.M11.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M11.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI L (EK1100)^M3L1 rY (EL7041-0052)">
+				<Link VarA="PlcTask Inputs^MAIN.M12.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^MAIN.M12.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
+			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^M2L1 X">
 				<Link VarA="PlcTask Inputs^MAIN.M7.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^MAIN.M7.Axis.PlcToNc" VarB="Inputs^FromPlc"/>

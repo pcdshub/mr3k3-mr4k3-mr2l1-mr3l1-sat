@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_RMSWatchENC" Id="{739b2dee-d1a8-47e1-8af8-39a888e9faed}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RMSWatchENC
+VAR_INPUT
+    EncScalingFactor : LREAL;
+END_VAR
+VAR_OUTPUT
+	// RMS Error
+	fMaxRMSError : LREAL := 0;
+	fMinRMSError : LREAL := 1000; // start at something huge, FB will update with any smaller measured value
+END_VAR
+VAR_IN_OUT
+	stMotionStage : DUT_MotionStage;
+END_VAR
+VAR
+	fbDataActPos : FB_LREALBuffer; // ActPos Data Acquisition FB
+	fbDataSetPos : FB_LREALBuffer; // SetPos Data Acquisition FB
+	bExecuteDataStorage : BOOL := TRUE; // Take data of both ActPos and SetPos
+	bNewEncArray : BOOL;
+    nSetEncPos : LREAL;
+
+	fbStats : FB_BasicStats; // Calculate mean/standard deviation of ActPos
+	{attribute 'pytmc' := '
+		pv: MEAN
+		io: i
+    '}
+	fEncMean : LREAL;
+	{attribute 'pytmc' := '
+		pv: STDEV
+		io: i
+    '}
+	fEncStDev : LREAL;
+	{attribute 'pytmc' := '
+		pv: RMS
+		io: i
+    '}
+	fCurrRMSError : LREAL := 0;
+
+	nIndex : DINT;
+	fSum : LREAL := 0; // Just for calculating rms
+	fDiff : LREAL := 0;
+
+	{attribute 'pytmc' := '
+		pv: ACTPOSARRAY
+		io: i
+    '}
+	aEncActPos : ARRAY [1..1000] OF LREAL;
+	{attribute 'pytmc' := '
+		pv: SETPOSARRAY
+		io: i
+	'}
+	aEncSetPos : ARRAY [1..1000] OF LREAL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// FB to store encoder positions in 1000 element arrays, compute RMS errors, and watch for min/max
+
+// Encoder Readback/Storage
+fbDataActPos(bExecute:=bExecuteDataStorage,
+           	 fInput:= ULINT_TO_LREAL(stMotionStage.nRawEncoderULINT),
+           	 arrOutput=>aEncActPos,
+             bNewArray=>bNewEncArray);
+
+nSetEncPos := (stMotionStage.Axis.NcToPlc.SetPos / EncScalingFactor);            
+
+fbDataSetPos(bExecute:=bExecuteDataStorage,
+           	 fInput:=nSetEncPos,
+           	 arrOutput=>aEncSetPos);
+
+fbStats(aSignal:=aEncActPos,
+	    bAlwaysCalc:=TRUE,
+		fMean=>fEncMean,
+		fStDev=>fEncStDev);
+
+// Calculate RMS Error:
+If bNewEncArray THEN
+	fCurrRMSError := 0;
+	FOR nIndex := 2 TO 1000 DO
+		// First point in array stuck as 0 for some reason...
+		fDiff := aEncActPos[nIndex] - aEncSetPos[nIndex];
+		fSum := EXPT(fDiff, 2);
+		fCurrRMSError := fCurrRMSError + fSum;
+	END_FOR;
+	fCurrRMSError := fCurrRMSError / 999.0; // 1000 element array but ditched the first point
+	fCurrRMSError := SQRT(fCurrRMSError);
+	// Watch for max:
+	IF fCurrRMSError > fMaxRMSError THEN
+		fMaxRMSError := fCurrRMSError;
+	END_IF
+	// Watch for min:
+	IF fCurrRMSError < fMinRMSError THEN
+		fMinRMSError := fCurrRMSError;
+	END_IF
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -70,7 +70,7 @@
       <Resolution>lcls-twincat-motion, * (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="lcls-twincat-optics">
-      <Resolution>lcls-twincat-optics, * (SLAC)</Resolution>
+      <Resolution>lcls-twincat-optics, 0.0.0 (SLAC)</Resolution>
     </PlaceholderResolution>
   </ItemGroup>
   <ItemGroup>

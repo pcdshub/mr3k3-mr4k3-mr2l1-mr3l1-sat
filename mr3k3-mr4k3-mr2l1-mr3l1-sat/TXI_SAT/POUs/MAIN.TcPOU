@@ -110,14 +110,15 @@ VAR
 	
 	{attribute 'TcLinkTo' := 'TIIB[Term 16 (EL1004)]^Channel 2^Input'}
     bSTOEnable2 AT %I* : BOOL;
+
     {attribute 'pytmc' := '
 		pv: MR3K3:HOMS:ENC:P
 	'}
     fbPRMSErrorEncM3K3 : FB_RMSWatchENC;
-    fMaxPRMSErrorM3K3 : LREAL;
-	fMinPRMSErrorM3K3 : LREAL;
-    
-    //fbXRMSErrorM3K3 : FB_RMSWatch;
+    {attribute 'pytmc' := '
+		pv: MR3K3:KBO:ENC:PITCH
+	'}
+    fbXRMSErrorM3K3 : FB_RMSWatch;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -149,11 +150,13 @@ fbMotionStageM10(stMotionStage:=M10);
 fbMotionStageM11(stMotionStage:=M11);
 fbMotionStageM12(stMotionStage:=M12);
 
-//fbXRMSErrorM3K3(stMotionStage:=M3);
+fbXRMSErrorM3K3(stMotionStage:=M3, 
+    EncScalingNum := 0.001796,
+    EncScalingDenom := 1.0,
+    EncOffset := 0.0
+);
 fbPRMSErrorEncM3K3(stMotionStage:=M3,
-	            fMaxRMSError=>fMaxPRMSErrorM3K3,
-				fMinRMSError=>fMinPRMSErrorM3K3,
-                EncScalingFactor:=0.00197);
+                EncScalingFactor:=0.001796);
 
 
 

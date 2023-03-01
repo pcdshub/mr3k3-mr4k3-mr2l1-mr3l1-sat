@@ -1,0 +1,21 @@
+
+Pragmas
+-------
+
+.. csv-table::
+    :header: PLC Name, Total Pragmas, Errors
+    :align: center
+
+    :ref:`TXI_SAT <TXI_SAT_overview_pragmas>`, 26, 0
+
+
+.. _TXI_SAT_overview_pragmas:
+
+
+TXI_SAT
+^^^^^^^
+
+Total pragmas found: 26
+Total linter errors: 0
+
+

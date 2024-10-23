@@ -1322,12 +1322,11 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Axis Id="5" CreateSymbols="true" AxisType="1">
-		<Name>__FILENAME__</Name>
+		<Name>M4K3 Y</Name>
 		<AxisPara>
 			<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="100" Deceleration="100" DelayTime="0.008"/>
-			<Velo Maximum="0.35"/>
+			<Velo Maximum="0.3"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
-			<ParameterChanged>39</ParameterChanged>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
 			<EncPara ScaleFactorNumerator="5e-06" MaxCount="#xffffffff">

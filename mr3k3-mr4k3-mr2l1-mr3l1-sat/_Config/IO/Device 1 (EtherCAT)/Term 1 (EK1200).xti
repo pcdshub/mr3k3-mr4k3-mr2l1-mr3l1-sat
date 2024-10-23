@@ -7,8 +7,17 @@
 		<Name>__FILENAME__</Name>
 		<ImageId>1000</ImageId>
 		<EtherCAT PdiType="#x0100" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04b02c52" RevisionNo="#x00001388" InfoDataState="false" PortPhys="49" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1200-5000 EtherCAT Power supply (2A E-Bus)" Desc="EK1200"/>
-		<Box File="Term 2 (EK1122).xti" Id="2">
+		<Box File="Term 24 (EL3052).xti" Id="24">
 			<EtherCAT PortABoxInfo="#x01000001"/>
+		</Box>
+		<Box File="Term 25 (EL3202-0010).xti" Id="25">
+			<EtherCAT PortABoxInfo="#x01000018"/>
+		</Box>
+		<Box File="Term 26 (EL7031).xti" Id="26">
+			<EtherCAT PortABoxInfo="#x01000019"/>
+		</Box>
+		<Box File="Term 2 (EK1122).xti" Id="2">
+			<EtherCAT PortABoxInfo="#x0100001a"/>
 		</Box>
 	</Box>
 </TcSmItem>

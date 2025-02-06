@@ -1321,15 +1321,17 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 	</DataTypes>
-	<Axis Id="5" CreateSymbols="true" AxisType="1">
-		<Name>M4K3 Y</Name>
+	<Axis Id="13" CreateSymbols="true" AxisType="1">
+		<Name>__FILENAME__</Name>
 		<AxisPara>
-			<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="100" Deceleration="100" DelayTime="0.008"/>
-			<Velo Maximum="0.3"/>
+			<Dynamic AccelerationMaximum="0.6" DecelerationMaximum="0.6" Acceleration="0.6" Deceleration="0.6" Jerk="1.2" DelayTime="0.008"/>
+			<Velo Maximum="0.05"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
-			<EncPara ScaleFactorNumerator="5e-06" MaxCount="#xffffffff">
+			<EncPara ScaleFactorNumerator="1e-06" MaxCount="#xffffffff">
+				<SoftEndMinControl Range="6.4549"/>
+				<SoftEndMaxControl Range="16.0941"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1337,7 +1339,7 @@ External Setpoint Generation:
 				<Var>
 					<Name>In</Name>
 					<Type GUID="{9ED17BA1-BC38-47CA-9DD2-F96861AB0266}" Namespace="MC">NCENCODERSTRUCT_IN3</Type>
-					<BitOffs>8960</BitOffs>
+					<BitOffs>24832</BitOffs>
 					<SubVar>
 						<Name>nState1</Name>
 						<Comment>
@@ -1367,13 +1369,13 @@ External Setpoint Generation:
 				<Var>
 					<Name>Out</Name>
 					<Type GUID="{4AA66E19-7B91-4A09-817D-0357681B7869}" Namespace="MC">NCENCODERSTRUCT_OUT3</Type>
-					<BitOffs>14080</BitOffs>
+					<BitOffs>38144</BitOffs>
 				</Var>
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="24">
 			<DrvPara Inverse="true">
-				<Analog VeloReferenz="1.25" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="0.1" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1381,7 +1383,7 @@ External Setpoint Generation:
 				<Var>
 					<Name>In</Name>
 					<Type GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC">NCDRIVESTRUCT_IN2</Type>
-					<BitOffs>9600</BitOffs>
+					<BitOffs>25472</BitOffs>
 					<SubVar TypeFormatIndex="2">
 						<Name>nDataIn1</Name>
 					</SubVar>
@@ -1419,7 +1421,7 @@ Drive Status 4 (manually linked):
 				<Var>
 					<Name>Out</Name>
 					<Type GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC">NCDRIVESTRUCT_OUT2</Type>
-					<BitOffs>14720</BitOffs>
+					<BitOffs>38784</BitOffs>
 					<SubVar TypeFormatIndex="2">
 						<Name>nDataOut1</Name>
 					</SubVar>
@@ -1463,8 +1465,8 @@ Drive Status 4 (manually linked):
 		</Drive>
 		<Controller Name="Ctrl" CtrType="2">
 			<CtrPara PriorControlFactor="1">
-				<PosDiffControl Range="0.3"/>
-				<PID DeadBandPosition="1"/>
+				<PosDiffControl Range="0.2"/>
+				<PID PosKp="15" PosExtKp="1" DeadBandPosition="0.001"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
@@ -1473,7 +1475,7 @@ Drive Status 4 (manually linked):
 			<Var>
 				<Name>FromPlc</Name>
 				<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				<BitOffs>7936</BitOffs>
+				<BitOffs>23808</BitOffs>
 			</Var>
 		</Vars>
 		<Vars VarGrpType="2" InsertType="1">
@@ -1481,7 +1483,7 @@ Drive Status 4 (manually linked):
 			<Var>
 				<Name>ToPlc</Name>
 				<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-				<BitOffs>12032</BitOffs>
+				<BitOffs>36096</BitOffs>
 				<SubVar>
 					<Name>AxisState</Name>
 					<Comment>
@@ -1532,7 +1534,18 @@ External Setpoint Generation:
 	</Axis>
 	<Mappings>
 		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M4K3 Y (EL7041-0052)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^Term 22 (EK1100)^EL5042_MMS_BEND">
+				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
+				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState"/>
+				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Inputs Channel 1^Position"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Diag" Size="1" OffsA="12"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Error" Size="1" OffsA="1"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Input cycle counter" Size="2" OffsA="14"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Ready" Size="1" OffsA="2"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^TxPDO State" Size="1" OffsA="13"/>
+				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Warning"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^Term 22 (EK1100)^EL7041_MMS_BEND">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving positive" Size="1" OffsA="4"/>
@@ -1550,17 +1563,6 @@ External Setpoint Generation:
 				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="STM Control^Control^Reduce torque" Size="1" OffsA="2"/>
 				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="STM Control^Control^Reset" Size="1" OffsA="1"/>
 				<Link VarA="Drive^Outputs^Out^nDataOut2[0]" VarB="STM Velocity^Velocity"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EK1122)^TXI K (EK1100)^M4K3 YrY (EL5042)">
-				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
-				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState"/>
-				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Inputs Channel 1^Position"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Diag" Size="1" OffsA="12"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Error" Size="1" OffsA="1"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Input cycle counter" Size="2" OffsA="14"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Ready" Size="1" OffsA="2"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^TxPDO State" Size="1" OffsA="13"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Warning"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

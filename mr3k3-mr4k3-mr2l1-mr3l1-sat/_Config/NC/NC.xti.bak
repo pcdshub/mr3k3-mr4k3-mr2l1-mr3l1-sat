@@ -22,5 +22,11 @@
 		<Axis File="M4K3 X.xti" Id="4"/>
 		<Axis File="M4K3 Y.xti" Id="5"/>
 		<Axis File="M4K3 rY.xti" Id="6"/>
+		<Axis File="M2L1 X.xti" Id="7"/>
+		<Axis File="M2L1 Y.xti" Id="8"/>
+		<Axis File="M2L1 rX.xti" Id="9"/>
+		<Axis File="M3L1 X.xti" Id="10"/>
+		<Axis File="M3L1 Y.xti" Id="11"/>
+		<Axis File="M3L1 rY.xti" Id="12"/>
 	</NC>
 </TcSmItem>

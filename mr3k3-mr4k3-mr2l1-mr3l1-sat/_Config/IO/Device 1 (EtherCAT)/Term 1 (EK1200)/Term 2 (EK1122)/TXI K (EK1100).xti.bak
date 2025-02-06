@@ -19,25 +19,25 @@
 		<Box File="Term 7 (EL9221-5000).xti" Id="7">
 			<EtherCAT PortABoxInfo="#x01000006"/>
 		</Box>
-		<Box File="Term 8 (EL7041-0052).xti" Id="8">
+		<Box File="M3K3 X (EL7041-0052).xti" Id="8">
 			<EtherCAT PortABoxInfo="#x01000007"/>
 		</Box>
-		<Box File="Term 9 (EL7041-0052).xti" Id="9">
+		<Box File="M3K3 Y  (EL7041-0052).xti" Id="9">
 			<EtherCAT PortABoxInfo="#x01000008"/>
 		</Box>
-		<Box File="Term 10 (EL7041-0052).xti" Id="10">
+		<Box File="M3K3 rX (EL7041-0052).xti" Id="10">
 			<EtherCAT PortABoxInfo="#x01000009"/>
 		</Box>
 		<Box File="Term 11 (EL9221-5000).xti" Id="11">
 			<EtherCAT PortABoxInfo="#x0100000a"/>
 		</Box>
-		<Box File="Term 12 (EL7041-0052).xti" Id="12">
+		<Box File="M4K3 X (EL7041-0052).xti" Id="12">
 			<EtherCAT PortABoxInfo="#x0100000b"/>
 		</Box>
-		<Box File="Term 13 (EL7041-0052).xti" Id="13">
+		<Box File="M4K3 Y (EL7041-0052).xti" Id="13">
 			<EtherCAT PortABoxInfo="#x0100000c"/>
 		</Box>
-		<Box File="Term 14 (EL7041-0052).xti" Id="14">
+		<Box File="M4K3 rY (EL7041-0052).xti" Id="14">
 			<EtherCAT PortABoxInfo="#x0100000d"/>
 		</Box>
 		<Box File="Term 15 (EL9410).xti" Id="15">
@@ -61,7 +61,7 @@
 		<Box File="Term 21 (EL3054).xti" Id="21">
 			<EtherCAT PortABoxInfo="#x01000014"/>
 		</Box>
-		<Box File="Term 22 (EL9011).xti" Id="22">
+		<Box File="Term 23 (EK1122).xti" Id="23">
 			<EtherCAT PortABoxInfo="#x01000015"/>
 		</Box>
 	</Box>

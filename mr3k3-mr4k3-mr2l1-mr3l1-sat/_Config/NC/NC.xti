@@ -28,5 +28,6 @@
 		<Axis File="M3L1 X.xti" Id="10"/>
 		<Axis File="M3L1 Y.xti" Id="11"/>
 		<Axis File="M3L1 rY.xti" Id="12"/>
+		<Axis File="MMS-BEND.xti" Id="13"/>
 	</NC>
 </TcSmItem>

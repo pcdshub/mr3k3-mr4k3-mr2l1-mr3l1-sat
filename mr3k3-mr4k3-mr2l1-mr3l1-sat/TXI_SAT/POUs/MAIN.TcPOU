@@ -109,6 +109,15 @@ VAR
 // theta Y
      M12 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE);
     fbMotionStageM12 : FB_MotionStage;
+    //MMMS BEND
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_MMS_BEND]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_MMS_BEND]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT    := TIIB[EL5042_MMS_BEND]^FB Inputs Channel 1^Position'}
+        {attribute 'pytmc' := '
+        pv: MMS:BEND:TEST
+        '}
+        M13 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE);
+        fbMotionStageM13 : FB_MotionStage;
     {attribute 'TcLinkTo' := 'TIIB[Term 16 (EL1004)]^Channel 1^Input'}
     bSTOEnable1 AT %I* : BOOL;
 	
@@ -130,6 +139,7 @@ M9.bHardwareEnable := bSTOEnable2 and bSTOEnable1;
 M10.bHardwareEnable := bSTOEnable2 and bSTOEnable1;
 M11.bHardwareEnable := bSTOEnable2 and bSTOEnable1;
 M12.bHardwareEnable := bSTOEnable2 and bSTOEnable1;
+M13.bHardwareEnable := bSTOEnable2 and bSTOEnable1;
 
 fbMotionStageM1(stMotionStage:=M1);
 fbMotionStageM2(stMotionStage:=M2);
@@ -144,6 +154,7 @@ fbMotionStageM9(stMotionStage:=M9);
 fbMotionStageM10(stMotionStage:=M10);
 fbMotionStageM11(stMotionStage:=M11);
 fbMotionStageM12(stMotionStage:=M12);
+fbMotionStageM13(stMotionStage:=M13);
 
 
 
